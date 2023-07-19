@@ -61,18 +61,6 @@ const start = async () => {
     server = app.listen(port, () =>
       console.log(`Server is running on port http://localhost:${port}`)
     );
-
-    const io = new Server(server, {
-      cors: {
-        origin: 'http://localhost:3000',
-        methods: ['GET', 'POST'],
-      },
-    });
-
-    io.on('connection', (socket) => {
-      console.log(`User connected: ${socket.id}`);
-      // Handle socket events here
-    });
   } catch (error) {
     console.log(error);
   }

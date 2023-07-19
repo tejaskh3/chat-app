@@ -9,7 +9,9 @@ const register = async (req, res) => {
     // Check if the email or username is already registered
     const existingUser = await User.findOne({ $or: [{ email }, { username }] });
     if (existingUser) {
-      return res.status(400).json({ error: 'Email or username already registered' });
+      return res
+        .status(400)
+        .json({ error: 'Email or username already registered' });
     }
 
     // Hash the password
@@ -24,36 +26,40 @@ const register = async (req, res) => {
       email,
       username,
       password: hashedPassword,
-      image,
+      image
     });
 
     // Save the new user to the database
     await newUser.save();
 
     // Return a success response
-    res.status(201).json({ message: 'User registered successfully', user: newUser });
+    res
+      .status(201)
+      .json({ message: 'User registered successfully', user: newUser });
   } catch (error) {
     console.log(error);
-    res.status(500).json({ error: 'An error occurred while registering the user', msg: error.message });
+    res
+      .status(500)
+      .json({
+        error: 'An error occurred while registering the user',
+        msg: error.message
+      });
   }
 };
 
 const login = async (req, res) => {
   try {
-    const { usernameOrEmail, password } = req.body;
+    const { username, password } = req.body;
 
     // Find the user by email or username
-    const user = await User.findOne({
-      $or: [{ email: usernameOrEmail }, { username: usernameOrEmail }],
-    });
+    const user = await User.findOne({username:username});
 
     if (!user) {
-      return res.status(400).json({ error: 'Invalid credentials' });
+      return res.status(400).json({ error: 'User does not exist.' });
     }
 
     // Compare the provided password with the stored hashed password
     const passwordMatch = await bcrypt.compare(password, user.password);
-
     if (!passwordMatch) {
       return res.status(400).json({ error: 'Invalid credentials' });
     }
@@ -62,8 +68,21 @@ const login = async (req, res) => {
     res.status(200).json({ message: 'User logged in successfully', user });
   } catch (error) {
     console.log(error);
-    res.status(500).json({ error: 'An error occurred during login', msg: error.message });
+    res
+      .status(500)
+      .json({ error: 'An error occurred during login', msg: error.message });
   }
 };
 
-module.exports = { register, login };
+
+const getUsers = async (req, res) => {
+  try {
+    const users = await User.find({});
+    res.status(200).json({ message: 'there are all users', users });
+  } catch (error) {
+    res
+      .status(500)
+      .json({ error: 'An error occurred during login', msg: error.message });
+  }
+};
+module.exports = { register, login, getUsers };
