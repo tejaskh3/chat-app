@@ -1,37 +1,3 @@
-// const dotenv = require('dotenv');
-// dotenv.config();
-// const exppress = require('express');
-// const app = exppress();
-// const cors = require('cors')
-// const bodyparser = require('body-parser');
-// app.use(bodyparser.json());
-// app.use(cors());
-// const { Server } = require('socket.io');
-// //importing mongoose connect funciton
-// const connectDB = require('./connect/connect');
-
-// //routers
-// const authRouter = require('./routes/auth');
-
-// //routes
-// app.use('/api/v1',authRouter);
-// app.get('/', (req, res) => res.send('hi'));
-// //connecting to server
-// const port = 8080;
-// // Create an io server and allow for CORS from http://localhost:3000 with GET and POST methods
-// let server;
-// const start = async () => {
-//   try {
-//     await connectDB(process.env.MONGO_URI);
-//      server = app.listen(port, () =>
-//       console.log(`server is on port https://localhost/${port}`)
-//     );
-//   } catch (error) {
-//     console.log(error);
-//   }
-// };
-// start();
-
 const dotenv = require('dotenv');
 dotenv.config();
 

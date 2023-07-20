@@ -4,7 +4,7 @@ const User = require('../model/User');
 const register = async (req, res) => {
   try {
     // Extract the data from the request body
-    const { name, age, email, username, password, image } = req.body;
+    const { email, username, password, image } = req.body;
 
     // Check if the email or username is already registered
     const existingUser = await User.findOne({ $or: [{ email }, { username }] });
@@ -21,8 +21,6 @@ const register = async (req, res) => {
 
     // Create a new user instance
     const newUser = new User({
-      name,
-      age,
       email,
       username,
       password: hashedPassword,
