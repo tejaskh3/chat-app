@@ -7,7 +7,6 @@
   width: max-content;
   text-align: left;
   width: 70%;
-
 }
 
 .heading {
@@ -45,3 +44,35 @@ br{
   animation: logoAnimation 5s infinite;
 }
 
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    align-items: center;
+    padding: 5%;
+    gap: 20px;
+  }
+
+  .formContainer {
+    order: 2;
+    gap: 10px;
+  }
+
+  .form input,
+  .form button {
+    margin-top: 5%;
+    width: 100%;
+  }
+
+  .formContainer h3 {
+    text-align: center;
+  }
+
+  .logo {
+    order: 1;
+  }
+
+  .heading, .subHeading {
+    order: 2;
+    display: none;
+  }
+}

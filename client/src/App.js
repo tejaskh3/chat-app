@@ -1,19 +1,19 @@
 import { useEffect, useState } from 'react';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Navbar from './component/navbar/Navbar';
 import Register from './component/register/Register';
 import Login from './component/login/Login';
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-
 function App() {
 
   return (
     <BrowserRouter>
+    <Navbar/>
     <Routes>
-      <Route path="/" element={<Navbar/>}/>
       <Route path="/login" element={<Login/>}/>
       <Route path="/register" element={<Register />} />
 
       </Routes>
+
     </BrowserRouter>
   );
 }

@@ -5,9 +5,9 @@ import { useNavigate } from 'react-router-dom';
 const AuthDescription = () => {
   const navigate = useNavigate();
   const handleNavigation = () => {
-    // setTimeout(()=>{
+    setTimeout(()=>{
     navigate('/');
-    // },120)
+    },150)
   };
   return (
     <div className={styles.container}>
