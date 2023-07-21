@@ -13,12 +13,11 @@ const Login = () => {
     try {
       const res = await axios.post('http://127.0.0.1:8080/api/v1/login', {
         username: userName,
-        email,
         password
       });
-      console.log(res);
-      alert('User created successfully');
-      console.log('user created successfully');
+      console.log(res.data);
+      alert('User loggedIn successfully');
+      console.log('user loggedIn successfully');
       navigate('/');
     } catch (error) {
       alert(`${error}`);
@@ -48,7 +47,7 @@ const Login = () => {
       <AuthDescription></AuthDescription>
       <div className={styles.formContainer}>
         <h3>Login</h3>
-        <form className={styles.form} onChange={handleSubmit}>
+        <form className={styles.form} onSubmit={handleSubmit}>
           <input
             type="text"
             placeholder="User Name"
