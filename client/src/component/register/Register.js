@@ -54,6 +54,7 @@ const Register = () => {
   };
 
   return (
+    <div className={styles.main}>
     <div className={styles.container}>
       {!isLoading && !filledDetails ? (
         <>
@@ -94,6 +95,7 @@ const Register = () => {
           avatars={avatars}
         />
       )}
+    </div>
     </div>
   );
 };

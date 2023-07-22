@@ -1,0 +1,40 @@
+.container{
+  color: white;
+  margin: 2px;
+  padding: 5px;
+  display: flex;
+
+}
+.userContainer{
+display: flex;
+flex-direction: column;
+gap: 3px;
+border: .1px solid rgb(237, 216, 163);
+width: 30%;
+
+}
+@media (max-width: 768px) {
+  .userContainer {
+    width: 100%; /* Occupy the full width of the container on smaller screens */
+
+  }
+}
+/* .chatContainer{
+  width: 70%;
+} */
+.chatContainer img,h3{
+  position: fixed;
+  overflow-x: hidden;
+  right: 0;
+  top: 120px;
+  z-index: -1000;
+}
+.chatContainer h3{
+  top:20%;
+  right: 20%;
+  color: #cfc547;
+  font-size: 1.5rem;
+text-shadow: 3px 0px 7px rgba(81,67,21,0.8),
+	  -3px 0px 7px rgba(81,67,21,0.8),
+	  0px 4px 7px rgba(81,67,21,0.8);
+}

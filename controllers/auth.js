@@ -80,7 +80,7 @@ const getUsers = async (req, res) => {
   } catch (error) {
     res
       .status(500)
-      .json({ error: 'An error occurred during login', msg: error.message });
+      .json({ error: 'An error occurred during getting  all users', msg: error.message });
   }
 };
 module.exports = { register, login, getUsers };

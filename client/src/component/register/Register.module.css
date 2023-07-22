@@ -94,7 +94,7 @@
   .logo {
     order: 1;
   }
-  body{
+  /* body{
     background: url("../../assets/personal-chats-view.png") ;
     background-position: center;
   background-repeat: no-repeat;
@@ -103,7 +103,7 @@
   backdrop-filter: blur(5px);
   height: 100vh;
     color:white;
-  }
+  } */
   .authdesc {
     order: 2;
 
